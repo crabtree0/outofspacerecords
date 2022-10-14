@@ -1,0 +1,183 @@
+{% extends 'welcome/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+<link rel="stylesheet" href="{% static 'welcome/style.css' %}" type="text/css">
+
+
+  <!-- Banner -->
+
+  <section id="banner" class="bg-dark text-light p-5" style="background-image: url('{% static 'welcome/img/OOS.JPG' %}'); background-position: 0px 0px; background-repeat: no-repeat; background-size: cover; ">
+      <div class="container has-bg-img">
+          <div class="d-md-flex justify-content-between align-items-center">
+
+                <div>
+              <h1>Welcome To <span class="text-warning">Out Of Space Records</span></h1>
+              <p class="lead">We specialise in vinyl and memorabilia across any music genre.<br>
+                  We pay top prices for good quality vinyl/music/memorabilia by appointment.<br>
+                  Please contact us with any enquires.
+
+              </p>
+                  <button hx-get="{% url 'contact' %}" hx-target="#dialog" class="btn btn-primary">
+                      Contact Us
+                  </button>
+                </div>
+              </div>
+
+
+          </div>
+
+
+
+      </div>
+
+
+  </section>
+
+    <!-- About Section1 -->
+    <section id="about" class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md p-5">
+                <img src="{% static 'welcome/img/shopwall.JPG' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md">
+                <h2> About Us</h2>
+                <p class="lead">
+                    Following a lifelong passion for music and a dream of opening a record shop, we finally opened "Out Of Space Records" in 2022.
+                    We are based at Kibworth Antiques Centre in Kibworth Harcourt Leicestershire, after the owner's specifically asked for a record seller to be situated there.<br>
+
+                    This is one of Leicestershire's largest antiques and interiors centre with over 80 dealers. It is an Aladdin's cave, with many rooms of antiques, curios and furniture.<br>
+
+                    Out of Space Records aims to sell many genres of music, continually increasing and replacing our stock over time and selling them at a reasonable and realistic price, selling both old issues and brand new releases. We also stock music related items such as books, CDs, DVDs, 7 inch singles, 12 inch singles, posters and memorabilia.<br>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section2 -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-md">
+
+                <p class="lead">
+                   If you should have any vinyl or music related items that you no longer need, want or love, please contact us and we will endeavour to offer a good price for your collection, which we will pay cash for.<br>
+
+                   Please contact us first as we will see you strictly by appointment only. You can call us Monday to Friday 9am to 5pm on 07806 509423 or email us at outofspacerecords@yahoo.com<br>
+
+                   We are happy to buy most genres of music, however, we would prefer not to buy country and western, musicals, easy listening and Reader's Digest box sets.<br>
+
+                   We would love you to pay us a visit and whilst here, why not pop into AJ's Coffee shop for tea and cake or a light lunch? After all with music and cake...what more could you want?<br>
+                </p>
+
+            </div>
+
+                <div class="col-md p-5">
+                <img src="{% static 'welcome/img/cdrack.JPG' %}" class="img-fluid" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+
+
+
+    <section class="bg-dark text-light p-5">
+        <div class="container position-relative">
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <a class="btn btn-warning btn-lg" href="{% url 'newsletters:newsletter_signup' %}" role="button">Sign Up For Our Newsletter</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact & Map -->
+    <section class="p-5" id="location">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md">
+                <h2 class="text-center mb-4">How To Find Us</h2>
+                <ul>
+                    <li class="list-group-item">
+                        <span class="fw-bold">Location</span>
+
+                    </li>
+                    <li class="list-group-item">
+                        Kibworth Antiques Centre,
+
+                    </li>
+                    <li class="list-group-item">
+                        19 Harborough Road,
+
+                    </li>
+                    <li class="list-group-item">
+                        Kibworth Harcourt,
+
+                    </li>
+                    <li class="list-group-item">
+                        Leicester LE8 0RB
+
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold">Tel:</span>
+
+                    </li>
+
+                    </li>
+                    <li class="list-group-item">
+                        07806 509423
+
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold">Email:</span>
+
+                    </li>
+
+                    </li>
+                    <li class="list-group-item">
+                        outofspacerecords@yahoo.com
+
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="col-md">
+                <div id="map">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Web Development by Sparky 2022</p>
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h1"></i>
+            </a>
+        </div>
+
+
+    </footer>
+
+
+{% endblock %}
+
+

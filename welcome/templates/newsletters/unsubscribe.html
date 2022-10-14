@@ -1,0 +1,28 @@
+{% extends 'welcome/base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <h3 class="text-center">Unsubscribe From Our Newsletter</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form }}
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Unsubscribe</button>
+
+                </span>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
