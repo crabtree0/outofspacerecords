@@ -22,7 +22,7 @@ def contact(request):
             message = "\n".join(body.values())
             html = "<div id='email-error' _='on load wait 1s trigger closeModal'>Success</div>"
             try:
-                send_mail(subject, message, 'outofspacerecords@yahoo.com', ['outofspacerecords@yahoo.com'])
+                send_mail(subject, message, 'info@outofspacerecords.com', ['outofspacerecords@yahoo.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
             return HttpResponse(status=204,
