@@ -4,9 +4,39 @@ from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from .models import Contact
+from .models import User
+from django.db.models import Q
+
 
 def home(request):
-    return render(request, 'welcome/home.html', {'form': ContactForm})
+
+
+    ### Get IP Address ####
+
+    def get_ip(request):
+        address = request.META.get('HTTP_X_FORWARDED_FOR')
+        if address:
+            ip = address.split(',')[-1].strip()
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+
+    ip = get_ip(request)
+    u = User(user=ip)
+    print(ip)
+    result = User.objects.filter(Q(user__icontains=ip))
+    if len(result) == 1:
+        print("user exists")
+    elif len(result) > 1:
+        print("user exists more...")
+    else:
+        u.save()
+        print("user is unique")
+
+    count = User.objects.all().count()
+    print("total user is", count)
+
+    return render(request, 'welcome/home.html', {'form': ContactForm, 'count': count})
 
 def contact(request):
     if request.method == 'POST':
@@ -35,3 +65,11 @@ def contact(request):
 
 def success(request):
     return render(request, 'welcome/messages.html')
+
+
+
+
+
+
+
+
